@@ -12,4 +12,5 @@ RUN apt-get update \
  && chmod +x /usr/local/bin/entrypoint.sh \
  && apt-get purge -y wget ca-certificates libidn11 openssl \
  && rm -rf /var/lib/apt/lists/*
+COPY wait.sh /usr/local/bin/
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
