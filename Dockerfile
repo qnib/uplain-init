@@ -12,5 +12,6 @@ RUN apt-get update \
  && rm -f /usr/local/bin/go-github \
  && apt-get purge -y wget ca-certificates libidn11 openssl \
  && rm -rf /var/lib/apt/lists/*
-COPY wait.sh /usr/local/bin/
+HEALTHCHECK --interval=5s --retries=5 --timeout=2s \
+  CMD /usr/local/bin/healthcheck.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
