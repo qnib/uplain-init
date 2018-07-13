@@ -1,4 +1,4 @@
-FROM ubuntu:xenial-20180525
+FROM ubuntu:bionic-20180526
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends wget ca-certificates wget xz-utils \
