@@ -1,4 +1,9 @@
-FROM ubuntu:bionic-20180526
+ARG FROM_IMG_REGISTRY=docker.io
+ARG FROM_IMG_REPO=library
+ARG FROM_IMG_NAME="ubuntu"
+ARG FROM_IMG_TAG="bionic-20180526"
+ARG FROM_IMG_HASH=""
+FROM ${FROM_IMG_REGISTRY}/${FROM_IMG_REPO}/${FROM_IMG_NAME}:${FROM_IMG_TAG}${DOCKER_IMG_HASH}
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends wget ca-certificates wget xz-utils \
