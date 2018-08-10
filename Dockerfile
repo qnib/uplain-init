@@ -1,4 +1,4 @@
-FROM ubuntu:xenial-20171207@sha256:ec0e4e8bf2c1178e025099eed57c566959bb408c6b478c284c1683bc4298b683
+FROM ubuntu:xenial-20180726
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends wget ca-certificates iproute2 \
