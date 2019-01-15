@@ -6,7 +6,7 @@ ARG FROM_IMG_HASH=""
 FROM ${FROM_IMG_REGISTRY}/${FROM_IMG_REPO}/${FROM_IMG_NAME}:${IMG_TAG}${DOCKER_IMG_HASH}
 
 RUN apt-get update \
- && apt-get install -y --no-install-recommends wget ca-certificates wget xz-utils python3.6 \
+ && apt-get install -y --no-install-recommends wget ca-certificates wget xz-utils python3.6 iproute2 \
  && update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1 \
  && wget -qO /usr/local/bin/go-github https://github.com/qnib/go-github/releases/download/0.3.0/go-github_0.3.0_Linux \
  && chmod +x /usr/local/bin/go-github \
