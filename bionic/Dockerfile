@@ -1,7 +1,7 @@
 ARG FROM_IMG_REGISTRY=docker.io
 ARG FROM_IMG_REPO=library
 ARG FROM_IMG_NAME="ubuntu"
-FROM ${FROM_IMG_REGISTRY}/${FROM_IMG_REPO}/${FROM_IMG_NAME}:bionic-20190122
+FROM ${FROM_IMG_REGISTRY}/${FROM_IMG_REPO}/${FROM_IMG_NAME}:bionic-20190204
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends wget ca-certificates wget xz-utils python3.6 iproute2 \
