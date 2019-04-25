@@ -1,0 +1,11 @@
+image: docker:stable
+
+ before_script:
+   - docker info
+
+ build:
+   stage: build
+   script:
+     - env
+     - docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD $CI_REGISTRY
+     - docker build -t ${CI_REGISTRY_IMAGE}:gitlab-${CI_JOB_ID} .
