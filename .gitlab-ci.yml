@@ -1,11 +1,15 @@
 image: docker:stable
 
- before_script:
-   - docker info
+before_script:
+   - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD https://gitlab:4567
 
- build:
+xenial:
    stage: build
    script:
-     - env
-     - docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD $CI_REGISTRY
-     - docker build -t ${CI_REGISTRY_IMAGE}:gitlab-${CI_JOB_ID} .
+     - docker build -t $CI_REGISTRY_IMAGE:xenial-j$CI_JOB_ID . -f=xenial/Dockerfile
+     - docker push $CI_REGISTRY_IMAGE:xenial-j$CI_JOB_ID
+bionic:
+   stage: build
+   script:
+     - docker build -t $CI_REGISTRY_IMAGE:bionic-j$CI_JOB_ID . -f=bionic/Dockerfile
+     - docker push $CI_REGISTRY_IMAGE:bionic-j$CI_JOB_ID
